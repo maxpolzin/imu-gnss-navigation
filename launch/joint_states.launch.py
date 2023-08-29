@@ -26,10 +26,10 @@ def generate_launch_description():
 
     # Package Directories
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
-    pkg_ros_gz_sim_demos = get_package_share_directory('ros_gz_sim_demos')
+    pkg_imu_gnss_navigation = get_package_share_directory('imu_gnss_navigation')
 
     # Parse robot description from xacro
-    robot_description_file = os.path.join(pkg_ros_gz_sim_demos, 'models', 'rrbot.xacro')
+    robot_description_file = os.path.join(pkg_imu_gnss_navigation, 'models', 'rrbot.xacro')
     robot_description_config = xacro.process_file(
         robot_description_file
     )
@@ -56,7 +56,7 @@ def generate_launch_description():
     rviz = Node(
         package='rviz2',
         executable='rviz2',
-        arguments=['-d', os.path.join(pkg_ros_gz_sim_demos, 'rviz', 'joint_states.rviz')],
+        arguments=['-d', os.path.join(pkg_imu_gnss_navigation, 'rviz', 'joint_states.rviz')],
     )
 
     # Spawn

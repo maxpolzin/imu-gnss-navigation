@@ -22,14 +22,14 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    pkg_ros_gz_sim_demos = get_package_share_directory('ros_gz_sim_demos')
+    pkg_imu_gnss_navigation = get_package_share_directory('imu_gnss_navigation')
     return LaunchDescription([
         # Launch gazebo
         ExecuteProcess(
             cmd=[
                 'ign', 'gazebo', '-r',
                 os.path.join(
-                    pkg_ros_gz_sim_demos,
+                    pkg_imu_gnss_navigation,
                     'models',
                     'double_pendulum_model.sdf'
                 )
@@ -54,6 +54,6 @@ def generate_launch_description():
         Node(
             package='rviz2',
             executable='rviz2',
-            arguments=['-d', os.path.join(pkg_ros_gz_sim_demos, 'rviz', 'tf_bridge.rviz')]
+            arguments=['-d', os.path.join(pkg_imu_gnss_navigation, 'rviz', 'tf_bridge.rviz')]
         )
     ])

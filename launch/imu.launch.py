@@ -48,11 +48,11 @@ def generate_launch_description():
 
     # RViz
     # FIXME: Add once there's an IMU display for RViz2
-    # pkg_ros_gz_sim_demos = get_package_share_directory('ros_gz_sim_demos')
+    # pkg_imu_gnss_navigation = get_package_share_directory('imu_gnss_navigation')
     # rviz = Node(
     #     package='rviz2',
     #     executable='rviz2',
-    #     # arguments=['-d', os.path.join(pkg_ros_gz_sim_demos, 'rviz', 'imu.rviz')],
+    #     # arguments=['-d', os.path.join(pkg_imu_gnss_navigation, 'rviz', 'imu.rviz')],
     #     condition=IfCondition(LaunchConfiguration('rviz'))
     # )
 

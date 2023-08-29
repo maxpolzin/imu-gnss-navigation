@@ -28,7 +28,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
-    pkg_ros_gz_sim_demos = get_package_share_directory('ros_gz_sim_demos')
+    pkg_imu_gnss_navigation = get_package_share_directory('imu_gnss_navigation')
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
     gz_sim = IncludeLaunchDescription(
@@ -41,7 +41,7 @@ def generate_launch_description():
     rviz = Node(
         package='rviz2',
         executable='rviz2',
-        arguments=['-d', os.path.join(pkg_ros_gz_sim_demos, 'rviz', 'camera.rviz')],
+        arguments=['-d', os.path.join(pkg_imu_gnss_navigation, 'rviz', 'camera.rviz')],
         condition=IfCondition(LaunchConfiguration('rviz'))
     )
 

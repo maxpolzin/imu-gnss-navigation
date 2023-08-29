@@ -34,7 +34,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
         launch_arguments={
-            'gz_args': '-v 4 -r /home/max/gz_ws/src/ros_gz/ros_gz_sim_demos/worlds/spherical_coordinates.sdf'
+            'gz_args': '-v 4 -r /home/max/gz_ws/src/ros_gz/imu_gnss_navigation/worlds/spherical_coordinates.sdf'
         }.items(),
     )
 

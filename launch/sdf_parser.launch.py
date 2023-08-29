@@ -25,10 +25,10 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
-    pkg_ros_gz_sim_demos = get_package_share_directory('ros_gz_sim_demos')
+    pkg_imu_gnss_navigation = get_package_share_directory('imu_gnss_navigation')
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
-    sdf_file = os.path.join(pkg_ros_gz_sim_demos, 'models', 'vehicle', 'model.sdf')
+    sdf_file = os.path.join(pkg_imu_gnss_navigation, 'models', 'vehicle', 'model.sdf')
 
     with open(sdf_file, 'r') as infp:
         robot_desc = infp.read()
@@ -43,7 +43,7 @@ def generate_launch_description():
             os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py'),
         ),
         launch_arguments={'gz_args': PathJoinSubstitution([
-            pkg_ros_gz_sim_demos,
+            pkg_imu_gnss_navigation,
             'worlds',
             'vehicle.sdf'
         ])}.items(),
@@ -93,7 +93,7 @@ def generate_launch_description():
     rviz = Node(
         package='rviz2',
         executable='rviz2',
-        arguments=['-d', os.path.join(pkg_ros_gz_sim_demos, 'rviz', 'vehicle.rviz')],
+        arguments=['-d', os.path.join(pkg_imu_gnss_navigation, 'rviz', 'vehicle.rviz')],
         condition=IfCondition(LaunchConfiguration('rviz')),
         parameters=[
             {'use_sim_time': True},

@@ -52,7 +52,7 @@ def generate_launch_description():
         package='rviz2',
         executable='rviz2',
         # FIXME: Generate new RViz config once this demo is usable again
-        # arguments=['-d', os.path.join(pkg_ros_gz_sim_demos, 'rviz', 'depth_camera.rviz')],
+        # arguments=['-d', os.path.join(pkg_imu_gnss_navigation, 'rviz', 'depth_camera.rviz')],
         condition=IfCondition(LaunchConfiguration('rviz'))
     )
 

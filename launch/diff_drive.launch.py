@@ -28,14 +28,14 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
-    pkg_ros_gz_sim_demos = get_package_share_directory('ros_gz_sim_demos')
+    pkg_imu_gnss_navigation = get_package_share_directory('imu_gnss_navigation')
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
     gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
         launch_arguments={
-            'gz_args': '-v 4 -r /home/max/gz_ws/src/ros_gz/ros_gz_sim_demos/worlds/diff_drive.sdf'
+            'gz_args': '-v 4 -r ' + pkg_imu_gnss_navigation + '/worlds/diff_drive.sdf'
         }.items(),
     )
 
@@ -43,7 +43,7 @@ def generate_launch_description():
     rviz = Node(
        package='rviz2',
        executable='rviz2',
-       arguments=['-d', os.path.join(pkg_ros_gz_sim_demos, 'rviz', 'diff_drive.rviz')],
+       arguments=['-d', os.path.join(pkg_imu_gnss_navigation, 'rviz', 'diff_drive.rviz')],
        condition=IfCondition(LaunchConfiguration('rviz'))
     )
 
@@ -52,15 +52,13 @@ def generate_launch_description():
         package='ros_gz_bridge',
         executable='parameter_bridge',
         arguments=['/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist',
-                   '/model/vehicle_blue/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry',
                    '/gps/fix@sensor_msgs/msg/NavSatFix@gz.msgs.NavSat', 
                    '/imu@sensor_msgs/msg/Imu@gz.msgs.IMU'],
-        parameters=[{'qos_overrides./model/vehicle_blue.subscriber.reliability': 'reliable'}],
         output='screen'
     )
 
 
-    # sdf_file = os.path.join(pkg_ros_gz_sim_demos, 'models', 'vehicle', 'model.sdf')
+    # sdf_file = os.path.join(pkg_imu_gnss_navigation, 'models', 'vehicle', 'model.sdf')
 
     # with open(sdf_file, 'r') as infp:
     #     robot_desc = infp.read()

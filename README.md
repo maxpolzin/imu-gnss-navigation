@@ -14,7 +14,7 @@ There's a convenient launch file, try for example:
 
 Publishes fluid pressure readings.
 
-    ros2 launch ros_gz_sim_demos air_pressure.launch.py
+    ros2 launch imu_gnss_navigation air_pressure.launch.py
 
 This demo also shows the use of custom QoS parameters. The sensor data is
 published as as "best-effort", so trying to subscribe to "reliable" data won't
@@ -36,15 +36,15 @@ Images can be exposed to ROS through `ros_gz_bridge` or `ros_gz_image`.
 
 Using the image bridge (unidirectional, uses [image_transport](http://wiki.ros.org/image_transport)):
 
-    ros2 launch ros_gz_sim_demos image_bridge.launch.py
+    ros2 launch imu_gnss_navigation image_bridge.launch.py
 
 Using the regular bridge:
 
-    ros2 launch ros_gz_sim_demos camera.launch.py
+    ros2 launch imu_gnss_navigation camera.launch.py
 
 To use a camera that only publishes information when triggered:
 
-    ros2 launch ros_gz_sim_demos triggered_camera.launch.py
+    ros2 launch imu_gnss_navigation triggered_camera.launch.py
 
 Trigger the camera:
 
@@ -56,7 +56,7 @@ Trigger the camera:
 
 Send commands to a differential drive vehicle and listen to its odometry.
 
-    ros2 launch ros_gz_sim_demos diff_drive.launch.py
+    ros2 launch imu_gnss_navigation diff_drive.launch.py
 
 Then unpause and send a command
 
@@ -83,13 +83,13 @@ Depth camera data can be obtained as:
 
 Using the image bridge (unidirectional, uses [image_transport](http://wiki.ros.org/image_transport)):
 
-    ros2 launch ros_gz_sim_demos image_bridge.launch.py image_topic:=/depth_camera
+    ros2 launch imu_gnss_navigation image_bridge.launch.py image_topic:=/depth_camera
 
 *TODO*: Blocked by `ros_gz_point_cloud` [issue](https://github.com/gazebosim/ros_gz/issues/40).
 
 Using Gazebo Sim plugin:
 
-    ros2 launch ros_gz_sim_demos depth_camera.launch.py
+    ros2 launch imu_gnss_navigation depth_camera.launch.py
 
 ![](images/depth_camera_demo.png)
 
@@ -102,13 +102,13 @@ GPU lidar data can be obtained as:
 
 Using the bridge:
 
-    ros2 launch ros_gz_sim_demos gpu_lidar_bridge.launch.py
+    ros2 launch imu_gnss_navigation gpu_lidar_bridge.launch.py
 
 *TODO*: Blocked by `ros_gz_point_cloud` [issue](https://github.com/gazebosim/ros_gz/issues/40).
 
 Using Gazebo Sim plugin:
 
-    ros2 launch ros_gz_sim_demos gpu_lidar.launch.py
+    ros2 launch imu_gnss_navigation gpu_lidar.launch.py
 
 ![](images/gpu_lidar_demo.png)
 
@@ -116,7 +116,7 @@ Using Gazebo Sim plugin:
 
 Publishes IMU readings.
 
-    ros2 launch ros_gz_sim_demos imu.launch.py
+    ros2 launch imu_gnss_navigation imu.launch.py
 
 ![](images/imu_demo.png)
 
@@ -126,7 +126,7 @@ Publishes IMU readings.
 
 Publishes magnetic field readings.
 
-    ros2 launch ros_gz_sim_demos magnetometer.launch.py
+    ros2 launch imu_gnss_navigation magnetometer.launch.py
 
 ![](images/magnetometer_demo.png)
 
@@ -134,7 +134,7 @@ Publishes magnetic field readings.
 
 Publishes satellite navigation readings, only available in Fortress on.
 
-    ros2 launch ros_gz_sim_demos navsat.launch.py
+    ros2 launch imu_gnss_navigation navsat.launch.py
 
 ![](images/navsat_demo.png)
 
@@ -148,19 +148,19 @@ RGBD camera data can be obtained as:
 Using the image bridge (unidirectional, uses [image_transport](http://wiki.ros.org/image_transport)):
 
     # RGB image
-    ros2 launch ros_gz_sim_demos image_bridge.launch.py image_topic:=/rgbd_camera/image
+    ros2 launch imu_gnss_navigation image_bridge.launch.py image_topic:=/rgbd_camera/image
     # Depth image
-    ros2 launch ros_gz_sim_demos image_bridge.launch.py image_topic:=/rgbd_camera/depth_image
+    ros2 launch imu_gnss_navigation image_bridge.launch.py image_topic:=/rgbd_camera/depth_image
 
 Using the regular bridge:
 
-    ros2 launch ros_gz_sim_demos rgbd_camera_bridge.launch.py
+    ros2 launch imu_gnss_navigation rgbd_camera_bridge.launch.py
 
 *TODO*: Blocked by `ros_gz_point_cloud` [issue](https://github.com/gazebosim/ros_gz/issues/40).
 
 Using Gazebo Sim plugin:
 
-    ros2 launch ros_gz_sim_demos rgbd_camera.launch.py
+    ros2 launch imu_gnss_navigation rgbd_camera.launch.py
 
 ![](images/rgbd_camera_demo.png)
 
@@ -168,7 +168,7 @@ Using Gazebo Sim plugin:
 
 Get the current state of a battery.
 
-    ros2 launch ros_gz_sim_demos battery.launch.py
+    ros2 launch imu_gnss_navigation battery.launch.py
 
 Then send a command so the vehicle moves and drains the battery
 
@@ -182,7 +182,7 @@ Leverage the robot description publisher to spawn a new urdf model in gazebo and
 show it in rviz2.
 To try the demo launch:
 
-    ros2 launch ros_gz_sim_demos robot_description_publisher.launch.py
+    ros2 launch imu_gnss_navigation robot_description_publisher.launch.py
 
 ![](images/robot_state_publisher_demo.png)
 
@@ -192,7 +192,7 @@ Publishes joint states of the robot.
 
 To try the demo launch:
 
-    ros2 launch ros_gz_sim_demos joint_states.launch.py
+    ros2 launch imu_gnss_navigation joint_states.launch.py
 
 ![](images/joint_states.png)
 
@@ -203,6 +203,6 @@ and transforms of a robot in rviz.
 
 To try the demo launch:
 
-    ros2 launch ros_gz_sim_demos tf_bridge.launch.py
+    ros2 launch imu_gnss_navigation tf_bridge.launch.py
 
 ![](images/tf_bridge.gif)

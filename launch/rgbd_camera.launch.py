@@ -40,7 +40,7 @@ def generate_launch_description():
     # rviz = Node(
     #    package='rviz2',
     #    executable='rviz2',
-    #    arguments=['-d', os.path.join(pkg_ros_gz_sim_demos, 'rviz', 'rgbd_camera.rviz')],
+    #    arguments=['-d', os.path.join(pkg_imu_gnss_navigation, 'rviz', 'rgbd_camera.rviz')],
     #    condition=IfCondition(LaunchConfiguration('rviz'))
     # )
 
